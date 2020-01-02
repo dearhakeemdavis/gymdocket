@@ -1,0 +1,28 @@
+{
+	"home": {
+		"title": "Home",
+		"yourLists": "Your lists...",
+		"newList": "New List"
+	},
+	"viewWorkout": {
+		"title": "View Workout",
+		"yourLists": "Your lists...",
+		"newList": "New List",
+		"workouts": "Workouts",
+		"set": "Set",
+		"weight": "Weight",
+		"reps": "Reps",
+		"nextSet": "Next Set",
+		"previousSet": "Previous Set"
+	},
+	"error": {
+		"unable": "Unable to complete request at this time."
+	},
+	"global": {
+		"title": "GYM DOCKET",
+		"loading": "Loading",
+		"contact": "Contact",
+		"tutorial": "Tutorial",
+		"newList": "New List"
+	}
+}

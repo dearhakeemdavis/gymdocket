@@ -1,34 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from '../shared-comp-module/components.module';
+
+import { ViewListPage } from './view-list.page';
 
 //service
 import { ListService } from '../list.service';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: ViewListPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ]),
-    TranslateModule,
-    ComponentsModule
+    RouterModule.forChild(routes),
+    ComponentsModule,
+    TranslateModule
   ],
   declarations: [
-    HomePage
-    ],
+  ViewListPage
+  ],
   providers: [ListService]
 })
-export class HomePageModule {}
+export class ViewListPageModule {}

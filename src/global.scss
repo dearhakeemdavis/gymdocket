@@ -24,3 +24,171 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// padding
+$padding-within-div: 14px;
+$padding-btwn-section: 24px;
+$padding-btwn-sides: 14px;
+$padding-btwn-elements: 14px;
+
+// colors
+$dark-blue: #005F9E;
+$light-blue: #2D8BC9;
+$gray: #707070;
+$red: #982411;
+$white: #FFFFFF;
+
+// font size
+$jumbo-font: 24px;
+$large-font: 18px;
+$normal-font: 14px;
+$small-font: 12px;
+
+ion-title {
+	text-align: left;
+	padding: $padding-within-div;
+	color: $dark-blue;
+}
+
+h1 {
+	font-size: 42px;
+	font-weight: bold;
+	color: $dark-blue;
+}
+
+h2 {
+	font-size: 36px;
+	font-weight: bold;
+	color: $light-blue;
+}
+
+h3 {
+	font-size: 28;
+	font-weight: bold;
+	color: $gray;
+}
+
+p {
+	color: $gray;
+}
+
+a {
+	color: $red;
+}
+
+.jumbo {
+	font-size: $jumbo-font;
+}
+
+.large {
+	font-size: $large-font;
+}
+
+.normal {
+	font-size: $normal-font;
+}
+
+.small {
+	font-size: $small-font;
+}
+
+.dark-blue {
+	color: $dark-blue;
+}
+
+.light-blue {
+	color: $light-blue;
+}
+
+.gray {
+	color: $gray;
+}
+
+.red {
+	color: $red;
+}
+
+.section-padding {
+	padding: $padding-btwn-section $padding-btwn-sides $padding-btwn-section $padding-btwn-sides;
+}
+
+.div-padding {
+	padding: $padding-within-div;
+}
+
+.bottom-padding {
+	padding-bottom: $padding-btwn-elements;
+}
+
+.top-padding {
+	padding-top: $padding-btwn-elements;
+}
+
+.left-padding {
+	padding-left: $padding-btwn-elements;
+}
+
+.right-padding {
+	padding-right: $padding-btwn-elements;
+}
+
+.bottom-margin {
+	margin-bottom: $padding-btwn-elements;
+}
+
+.top-margin {
+	margin-top: $padding-btwn-elements;
+}
+
+.left-margin {
+	margin-left: $padding-btwn-elements;
+}
+
+.right-margin {
+	margin-right: $padding-btwn-elements;
+}
+
+.no-left-padding {
+	padding-left: 0;
+}
+
+.no-right-padding {
+	padding-right: 0;
+}
+
+.no-top-padding {
+	padding-top: 0;
+}
+
+.no-bottom-padding {
+	padding-bottom: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-left-margin {
+	margin-left: 0;
+}
+
+.no-right-margin {
+	margin-right: 0;
+}
+
+.no-top-margin {
+	margin-top: 0;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.button-blue-white {
+	background: $light-blue;
+	color: $white;
+}

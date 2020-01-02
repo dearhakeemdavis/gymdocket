@@ -1,14 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [subTitle]="title"></app-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div class="section-padding">
+    <ion-select [placeholder]="'home.yourLists' | translate" class="no-left-padding" (ionChange)="selectList()" [(ngModel)]="currentChoice">
+    	<ion-select-option *ngFor="let item of lists" [value]="item.id"> {{item.name | uppercase}}
+    	</ion-select-option>
+    </ion-select>
+
+    <button class="top-margin div-padding button-blue-white" ion-button (click)="newList()">{{ 'home.newList' | translate }}</button>
   </div>
 </ion-content>
+
+<ion-footer>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-lg-6 class="col-footer">
+				{{ 'global.contact' | translate }}
+			</ion-col>
+			<ion-col col-lg-6 class="col-footer">
+				{{ 'global.tutorial' | translate }}
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-footer>
