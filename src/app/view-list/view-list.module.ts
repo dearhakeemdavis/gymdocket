@@ -7,10 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from '../shared-comp-module/components.module';
 
+// page
 import { ViewListPage } from './view-list.page';
 
-//service
+// service
 import { ListService } from '../list.service';
+import { CalculatorModalPage } from '../calculator-modal/calculator-modal.page';
 
 const routes: Routes = [
   {
@@ -29,7 +31,11 @@ const routes: Routes = [
     TranslateModule
   ],
   declarations: [
-  ViewListPage
+  ViewListPage,
+  CalculatorModalPage
+  ],
+  entryComponents: [
+  CalculatorModalPage
   ],
   providers: [ListService]
 })

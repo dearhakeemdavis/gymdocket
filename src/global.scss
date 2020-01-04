@@ -29,12 +29,14 @@
 $padding-within-div: 14px;
 $padding-btwn-section: 24px;
 $padding-btwn-sides: 14px;
-$padding-btwn-elements: 14px;
+$padding-btwn-elements: 8px;
+$margin-btwn-elements: 8px;
+$margin-btwn-section: 24px;
 
 // colors
 $dark-blue: #005F9E;
 $light-blue: #2D8BC9;
-$gray: #707070;
+$grey: #707070;
 $red: #982411;
 $white: #FFFFFF;
 
@@ -47,29 +49,34 @@ $small-font: 12px;
 ion-title {
 	text-align: left;
 	padding: $padding-within-div;
-	color: $dark-blue;
+	color: $white;
+}
+
+ion-toolbar {
+	background: $light-blue;
 }
 
 h1 {
 	font-size: 42px;
 	font-weight: bold;
 	color: $dark-blue;
+	margin: 0;
 }
 
 h2 {
 	font-size: 36px;
 	font-weight: bold;
 	color: $light-blue;
+	margin: 0;
 }
 
 h3 {
-	font-size: 28;
+	font-size: 24px;
 	font-weight: bold;
-	color: $gray;
 }
 
 p {
-	color: $gray;
+	color: $grey;
 }
 
 a {
@@ -100,16 +107,28 @@ a {
 	color: $light-blue;
 }
 
-.gray {
-	color: $gray;
+.grey {
+	color: $grey;
 }
 
 .red {
 	color: $red;
 }
 
+.background-light-blue {
+	background: $light-blue;
+}
+
+.font-white {
+	color: $white;
+}
+
+.font-dark-blue {
+	color: $dark-blue;
+}
+
 .section-padding {
-	padding: $padding-btwn-section $padding-btwn-sides $padding-btwn-section $padding-btwn-sides;
+	padding: $padding-btwn-section $padding-btwn-sides 0 $padding-btwn-sides;
 }
 
 .div-padding {
@@ -132,20 +151,40 @@ a {
 	padding-right: $padding-btwn-elements;
 }
 
+.top-padding-side {
+	padding-top: $padding-btwn-sides;
+}
+
+.right-padding-side {
+	padding-right: $padding-btwn-sides;
+}
+
+.bottom-padding-side {
+	padding-bottom: $padding-btwn-sides;
+}
+
+.left-padding-side {
+	padding-left: $padding-btwn-sides;
+}
+
 .bottom-margin {
-	margin-bottom: $padding-btwn-elements;
+	margin-bottom: $margin-btwn-elements;
+}
+
+.bottom-margin-large {
+	margin-bottom: $margin-btwn-section;
 }
 
 .top-margin {
-	margin-top: $padding-btwn-elements;
+	margin-top: $margin-btwn-elements;
 }
 
 .left-margin {
-	margin-left: $padding-btwn-elements;
+	margin-left: $margin-btwn-elements;
 }
 
 .right-margin {
-	margin-right: $padding-btwn-elements;
+	margin-right: $margin-btwn-elements;
 }
 
 .no-left-padding {
@@ -189,6 +228,16 @@ a {
 }
 
 .button-blue-white {
-	background: $light-blue;
-	color: $white;
+	background: $white;
+	color: $dark-blue;
+	font-size: $jumbo-font;
+}
+
+.icon-calculator {
+	padding-left: 4px;
+	position: absolute;;
+}
+
+.small-shadow {
+	box-shadow: 1px 1px 4px 1px $grey;
 }

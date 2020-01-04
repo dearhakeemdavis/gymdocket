@@ -25,50 +25,51 @@ export class HttpConfigInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
- 	this.presentLoader();
+    let customReq: HttpRequest<any> = request;
+ 	  this.presentLoader();
 
-	request = request.clone({
-		setHeaders: {
-	      'content-type': 'application/json',
-	      'Accept': 'application/json'
+  	customReq = request.clone({
+  		setHeaders: {
+  	    'content-type': 'application/json',
+  	    'Accept': 'application/json'
 	    }
   	});
-  
-    return next.handle(request).pipe(
+    
+    return next.handle(customReq).pipe(
     	map((event: HttpEvent<any>) => {
     		this.dismissLoader();
 
-        	if (event instanceof HttpResponse) {
-        		console.log('event--->>>', event);
-        	}
+      	if (event instanceof HttpResponse) {
+          console.log('instanceof HttpResponse: ', event);
+      	}
 
-    		return event;
+  		  return event;
       	}),
       	catchError((error: HttpErrorResponse) => {
-        	console.error('Interceptor error: ', error);
-        	//this.dismissLoader();
+          console.log('catchError: ', error);
+          this.dismissLoader();
 
         	return throwError(this.genericError);
   		})
-	);
+  	);
   }
 
-  presentLoader() {
-	this.isLoading = true;
-
-    return this.loadingController.create()
-    .then(res => {
-    	res.present().then(() => {
-			if (!this.isLoading) {
-        		res.dismiss();
-        	}
-    	});
-    });
+  async presentLoader() {
+    if(!this.isLoading) {
+      this.loader = await this.loadingController.create({
+        spinner: 'circles', 
+        duration: 3000
+      });
+      this.isLoading = true;
+      return await this.loader.present();
+    }
   }
 
-  dismissLoader() {
-  	this.isLoading = false;
-
-    return this.loadingController.dismiss();
+  async dismissLoader() {
+    if (this.loader) {
+      this.isLoading = false;
+      return await this.loader.dismiss();
+    }
+    
   }
 }

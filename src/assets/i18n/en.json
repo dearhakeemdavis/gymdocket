@@ -15,6 +15,12 @@
 		"nextSet": "Next Set",
 		"previousSet": "Previous Set"
 	},
+	"calculator": {
+		"calculateWeight": "Calculate Weight",
+		"weight": "Weight",
+		"quantity": "Quantity",
+		"total": "Total"
+	},
 	"error": {
 		"unable": "Unable to complete request at this time."
 	},

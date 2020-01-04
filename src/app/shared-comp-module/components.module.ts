@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -10,10 +11,14 @@ import { TranslateModule } from '@ngx-translate/core';
 	TranslateModule
 	],
 	declarations: [
-	HeaderComponent
+	HeaderComponent,
+	FooterComponent,
 	],
 	exports: [
-	HeaderComponent
+	HeaderComponent,
+	FooterComponent,
+	],
+	entryComponents: [
 	]
 })
 

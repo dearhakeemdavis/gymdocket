@@ -19,6 +19,9 @@ import { Config } from '../config/config';
 // service
 import { ListService } from './list.service';
 
+// page
+//import { CalculatorModalPage } from './calculator-modal/calculator-modal.page';
+
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -41,9 +44,12 @@ export const TRANSLATE_MODULE_CONFIG: TranslateModuleConfig = {
 
 @NgModule({
   declarations: [
-  	AppComponent
+  	AppComponent,
+    //CalculatorModalPage
   	],
-  entryComponents: [],
+  entryComponents: [
+  //CalculatorModalPage
+  ],
   imports: [
   	BrowserModule,
   	IonicModule.forRoot(),

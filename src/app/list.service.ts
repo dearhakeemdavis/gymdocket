@@ -48,7 +48,7 @@ export class ListService {
 		return new Promise(resolve => {
 			this.dataStore.get('lists').then((data: any) => {
 				if (data) {
-					console.log('returning by id from storage...');
+					console.log('get_lists_by_id() returning by id from storage...');
 					for (let list of (data || [])) {
 			  			if (list.id === id) {
 			  				resolve(list);
@@ -56,11 +56,11 @@ export class ListService {
 			  			}
 			  		}
 				} else {
-					console.log('returning by id from server: ', id);
+					console.log('get_lists_by_id() returning by id from server: ', id);
 					this.http.get(`${this.baseURL}/lists`)
 					.subscribe((data: any) => {
 						for (let list of (data || [])) {
-							console.log(list);
+							console.log('list', list);
 				  			if (list.id === id) {
 				  				resolve(list);
 				  				break;
@@ -68,29 +68,6 @@ export class ListService {
 				  		}
 					});
 				}
-			});
-		});
-	}
-
-	patch_listss(id: number, workouts: any) {
-		let workout = { workouts: workouts };
-
-		return new Promise(resolve => {
-			this.get_lists()
-			.then((lists: any) => {
-				console.log('get_lists lists: ', lists);
-				for (let [i, item] of lists.entries()) {
-					if (item.id === 1) {
-						lists[i] = 1;
-					}
-				}
-
-				this.http.post(`${this.baseURL}/lists/${id}`, lists)
-				.subscribe(data => {
-					console.log('update successful: ', data);
-					this.dataStore.set('lists', data);
-					resolve(data);
-				});
 			});
 		});
 	}

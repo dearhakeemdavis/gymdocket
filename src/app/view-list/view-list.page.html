@@ -1,47 +1,38 @@
-<app-header [subTitle]="title"></app-header>
+<app-header [subTitle]="currentList.name"></app-header>
 
 <ion-content>
   <div class="section-padding">
-  	<h1>
-  		{{ currentList.name }}
-  	</h1>
-  </div>
-
-  <div class="section-padding">
-  	<h2>
-  		{{ 'viewWorkout.workouts' | translate}}
-  	</h2>
-
   	<ion-grid>
-  		<ion-row *ngFor="let workout of currentList.workouts">
-  			<ion-col size="12">
-  				<h3>{{ workout.name }}</h3>
+  		<ion-row class="small-shadow bottom-margin-large" *ngFor="let workout of currentList.workouts">
+  			<ion-col size="12" class="background-light-blue bottom-margin" text-center>
+  				<h3 class="font-white">{{ workout.name }}</h3>
   			</ion-col>
-  			<ion-col size="4">
+  			<ion-col size="4" text-center>
   				<ion-label position="floating">
   					{{ 'viewWorkout.set' | translate }}
   				</ion-label>
   				<ion-input inputmode="numeric" type="number" [(ngModel)]="sets[workout.id].num"></ion-input>
   			</ion-col>
-  			<ion-col size="4">
+  			<ion-col size="4" text-center>
   				<ion-label position="floating">
   					{{ 'viewWorkout.weight' | translate }}
+            <ion-icon name="calculator" class="icon-calculator" slot="end" (click)="openCalculatorModal(workout.id)"></ion-icon>
   				</ion-label>
   				<ion-input clearOnEdit="false" inputmode="numeric" type="number" [value]="getWeight(workout.id)" [(ngModel)]="sets[workout.id].weight" (ionChange)="updateWeight(workout.id)" debounce="1000"></ion-input>
   			</ion-col>
-  			<ion-col size="4">
+  			<ion-col size="4" text-center>
   				<ion-label position="floating">
   					{{ 'viewWorkout.reps' | translate }}
   				</ion-label>
   				<ion-input clearOnEdit="false" inputmode="numeric" type="number" [value]="getReps(workout.id)" [(ngModel)]="sets[workout.id].reps" (ionChange)="updateReps(workout.id)" debounce="1000"></ion-input>
   			</ion-col>
-  			<ion-col size="12">
-  				<button icon-only class="top-margin right-margin div-padding button-blue-white" ion-button (click)="previousSet(workout.id)">
-  					<ion-icon slot="start" name="arrow-dropleft"></ion-icon>
+  			<ion-col size="12" text-center>
+  				<button icon-only class="top-margin right-margin no-padding button-blue-white" ion-button (click)="previousSet(workout.id)">
+  					<ion-icon slot="start" name="arrow-dropleft-circle"></ion-icon>
   				</button>
 
-  				<button icon-only class="top-margin div-padding button-blue-white" ion-button (click)="nextSet(workout.id)">
-  					<ion-icon slot="end" name="arrow-dropright"></ion-icon>
+  				<button icon-only class="top-margin no-padding button-blue-white" ion-button (click)="nextSet(workout.id)">
+  					<ion-icon slot="end" name="arrow-dropright-circle"></ion-icon>
   				</button>
   			</ion-col>
   		</ion-row>
@@ -49,15 +40,4 @@
   </div>
 </ion-content>
 
-<ion-footer>
-	<ion-grid>
-		<ion-row>
-			<ion-col col-lg-6 class="col-footer">
-				{{ 'global.contact' | translate }}
-			</ion-col>
-			<ion-col col-lg-6 class="col-footer">
-				{{ 'global.tutorial' | translate }}
-			</ion-col>
-		</ion-row>
-	</ion-grid>
-</ion-footer>
+<app-footer></app-footer>
