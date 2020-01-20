@@ -17,16 +17,23 @@
 	},
 	"calculator": {
 		"calculateWeight": "Calculate Weight",
+		"barWeight": "Bar Weight",
 		"weight": "Weight",
 		"quantity": "Quantity",
-		"total": "Total"
+		"total": "Total",
+		"alert": {
+			"title": "Confirm",
+			"message": "Update total weight to 0?",
+			"yes": "Yes",
+			"cancel": "Cancel"
+		}
 	},
 	"error": {
 		"unable": "Unable to complete request at this time."
 	},
 	"global": {
 		"title": "GYM DOCKET",
-		"loading": "Loading",
+		"loading": "Loading...",
 		"contact": "Contact",
 		"tutorial": "Tutorial",
 		"newList": "New List"

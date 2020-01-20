@@ -35,8 +35,8 @@ $margin-btwn-section: 24px;
 
 // colors
 $dark-blue: #005F9E;
-$light-blue: #2D8BC9;
-$grey: #707070;
+$light-blue: #6dced8;
+$grey: #333333;
 $red: #982411;
 $white: #FFFFFF;
 
@@ -49,11 +49,7 @@ $small-font: 12px;
 ion-title {
 	text-align: left;
 	padding: $padding-within-div;
-	color: $white;
-}
-
-ion-toolbar {
-	background: $light-blue;
+	color: $grey;
 }
 
 h1 {
@@ -66,7 +62,6 @@ h1 {
 h2 {
 	font-size: 36px;
 	font-weight: bold;
-	color: $light-blue;
 	margin: 0;
 }
 
@@ -121,6 +116,10 @@ a {
 
 .font-white {
 	color: $white;
+}
+
+.font-grey {
+	color: $grey;
 }
 
 .font-dark-blue {
@@ -233,11 +232,30 @@ a {
 	font-size: $jumbo-font;
 }
 
+.button-grey-white {
+	background: $white;
+	color: $grey;
+	font-size: $jumbo-font;
+}
+
+.button-blue-white-border {
+	background: $white;
+	color: $dark-blue;
+	border: 1px solid $dark-blue;
+	font-size: $jumbo-font;
+	padding: 8px;
+}
+
 .icon-calculator {
 	padding-left: 4px;
 	position: absolute;;
 }
 
 .small-shadow {
-	box-shadow: 1px 1px 4px 1px $grey;
+	box-shadow: 1px 1px 4px 1px $light-blue;
+}
+
+.card-header {
+	background: #ffffff;
+    border-bottom: 1px solid #6dced8;
 }

@@ -4,8 +4,8 @@
   <div class="section-padding">
   	<ion-grid>
   		<ion-row class="small-shadow bottom-margin-large" *ngFor="let workout of currentList.workouts">
-  			<ion-col size="12" class="background-light-blue bottom-margin" text-center>
-  				<h3 class="font-white">{{ workout.name }}</h3>
+  			<ion-col size="12" class="card-header bottom-margin" text-center>
+  				<h3 class="font-grey">{{ workout.name }}</h3>
   			</ion-col>
   			<ion-col size="4" text-center>
   				<ion-label position="floating">
@@ -27,11 +27,11 @@
   				<ion-input clearOnEdit="false" inputmode="numeric" type="number" [value]="getReps(workout.id)" [(ngModel)]="sets[workout.id].reps" (ionChange)="updateReps(workout.id)" debounce="1000"></ion-input>
   			</ion-col>
   			<ion-col size="12" text-center>
-  				<button icon-only class="top-margin right-margin no-padding button-blue-white" ion-button (click)="previousSet(workout.id)">
+  				<button icon-only class="top-margin right-margin no-padding button-grey-white" ion-button (click)="previousSet(workout.id)">
   					<ion-icon slot="start" name="arrow-dropleft-circle"></ion-icon>
   				</button>
 
-  				<button icon-only class="top-margin no-padding button-blue-white" ion-button (click)="nextSet(workout.id)">
+  				<button icon-only class="top-margin no-padding button-grey-white" ion-button (click)="nextSet(workout.id)">
   					<ion-icon slot="end" name="arrow-dropright-circle"></ion-icon>
   				</button>
   			</ion-col>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="ion-text-right">
-  	<button icon-only class="no-padding button-blue-white right-margin" ion-button (click)="dismiss(false)">
+  	<button icon-only class="no-padding button-grey-white right-margin" ion-button (click)="dismiss(false)">
 		<ion-icon name="close-circle"></ion-icon>
 	</button>
   </ion-toolbar>
@@ -10,25 +10,45 @@
 	<div class="section-padding">
 	  	<ion-list>
 	  		<ion-list-header>
-	  			<h2>
+	  			<h2 class="font-grey">
 	  				{{ 'calculator.calculateWeight' | translate }}
 	  			</h2>
 	  		</ion-list-header>
 
 	  		<ion-item>
 	  			<ion-label>
+	  				{{ 'calculator.barWeight' | translate }}
+	  			</ion-label>
+	  			<ion-select [(ngModel)]="barWeight" interface="popover">
+	  				<ion-select-option [value]="5">5</ion-select-option>
+	  				<ion-select-option [value]="10">10</ion-select-option>
+	  				<ion-select-option [value]="15">15</ion-select-option>
+	  				<ion-select-option [value]="20">20</ion-select-option>
+	  				<ion-select-option [value]="25">25</ion-select-option>
+	  				<ion-select-option [value]="30">30</ion-select-option>
+	  				<ion-select-option [value]="35">35</ion-select-option>
+	  				<ion-select-option [value]="40">40</ion-select-option>
+	  				<ion-select-option [value]="45">45</ion-select-option>
+	  				<ion-select-option [value]="50">50</ion-select-option>
+	  				<ion-select-option [value]="75">75</ion-select-option>
+	  				<ion-select-option [value]="100">100</ion-select-option>
+	  			</ion-select>
+	  		</ion-item>
+
+	  		<ion-item>
+	  			<ion-label>
 	  				{{ 'calculator.weight' | translate }}
 	  			</ion-label>
 	  			<ion-select [(ngModel)]="weight" interface="popover">
-	  				<ion-select-option value="2.5">2.5</ion-select-option>
-	  				<ion-select-option value="5">5</ion-select-option>
-	  				<ion-select-option value="10">10</ion-select-option>
-	  				<ion-select-option value="25">25</ion-select-option>
-	  				<ion-select-option value="35">35</ion-select-option>
-	  				<ion-select-option value="45">45</ion-select-option>
-	  				<ion-select-option value="50">50</ion-select-option>
-	  				<ion-select-option value="75">75</ion-select-option>
-	  				<ion-select-option value="100">100</ion-select-option>
+	  				<ion-select-option [value]="2.5">2.5</ion-select-option>
+	  				<ion-select-option [value]="5">5</ion-select-option>
+	  				<ion-select-option [value]="10">10</ion-select-option>
+	  				<ion-select-option [value]="25">25</ion-select-option>
+	  				<ion-select-option [value]="35">35</ion-select-option>
+	  				<ion-select-option [value]="45">45</ion-select-option>
+	  				<ion-select-option [value]="50">50</ion-select-option>
+	  				<ion-select-option [value]="75">75</ion-select-option>
+	  				<ion-select-option [value]="100">100</ion-select-option>
 	  			</ion-select>
 	  		</ion-item>
 
@@ -36,28 +56,38 @@
 	  			<ion-label position="floating">
   					{{ 'calculator.quantity' | translate }}
   				</ion-label>
-	  			<ion-input clearOnEdit="false" inputmode="numeric" type="number" [(ngModel)]="quantity">
+	  			<ion-input clearInput="false" clearOnEdit="false" inputmode="numeric" type="number" [(ngModel)]="quantity">
 	  			</ion-input>
 	  		</ion-item>
 	  	</ion-list>
   	</div>
 
   	<div class="section-padding">
-  		<button icon-only class="no-padding button-blue-white" ion-button (click)="reset()">
-			<ion-icon name="refresh-circle"></ion-icon>
-		</button>
+  		<ion-row>
+  			<ion-col text-center>
+		  		<button icon-only class="no-padding button-grey-white" ion-button (click)="reset()">
+					<ion-icon name="refresh-circle"></ion-icon>
+				</button>
+			</ion-col>
 
-  		<button icon-only class="no-padding button-blue-white left-margin right-margin" ion-button (click)="subtract()">
-			<ion-icon name="remove-circle"></ion-icon>
-		</button>
+			<ion-col text-center>
+				<button icon-only class="no-padding button-grey-white" ion-button (click)="add()">
+					<ion-icon name="add-circle"></ion-icon>
+				</button>
+			</ion-col>
 
-		<button icon-only class="no-padding button-blue-white" ion-button (click)="add()">
-			<ion-icon name="add-circle"></ion-icon>
-		</button>
+			<ion-col text-center>
+				<button icon-only class="no-padding button-grey-white" ion-button (click)="subtract()">
+					<ion-icon name="remove-circle"></ion-icon>
+				</button>
+			</ion-col>
 
-		<button icon-only class="no-padding button-blue-white left-margin" ion-button (click)="dismiss(true)">
-			<ion-icon name="checkmark-circle"></ion-icon>
-		</button>
+			<ion-col text-center>
+				<button icon-only class="no-padding button-grey-white" ion-button (click)="dismiss(true)">
+					<ion-icon name="checkmark-circle"></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>
   	</div>
 
   	<div class="section-padding">

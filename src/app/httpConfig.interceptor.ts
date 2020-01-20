@@ -3,7 +3,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, Htt
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Events } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class HttpConfigInterceptor {
 
   constructor(
   	private translate: TranslateService,
-  	public loadingController: LoadingController
+  	public loadingController: LoadingController,
+    public events: Events
   	) {
   	this.translate.get(['error.unable']).subscribe((res: string) => {
         this.genericError = res['error.unable']
@@ -40,13 +41,11 @@ export class HttpConfigInterceptor {
     		this.dismissLoader();
 
       	if (event instanceof HttpResponse) {
-          console.log('instanceof HttpResponse: ', event);
       	}
 
   		  return event;
       	}),
       	catchError((error: HttpErrorResponse) => {
-          console.log('catchError: ', error);
           this.dismissLoader();
 
         	return throwError(this.genericError);
@@ -54,22 +53,12 @@ export class HttpConfigInterceptor {
   	);
   }
 
-  async presentLoader() {
-    if(!this.isLoading) {
-      this.loader = await this.loadingController.create({
-        spinner: 'circles', 
-        duration: 3000
-      });
-      this.isLoading = true;
-      return await this.loader.present();
-    }
+  presentLoader() {
+    this.events.publish('loader:loading', true);
   }
 
-  async dismissLoader() {
-    if (this.loader) {
-      this.isLoading = false;
-      return await this.loader.dismiss();
-    }
+  dismissLoader() {
+    this.events.publish('loader:loading', false);
     
   }
 }
